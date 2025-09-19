@@ -5,7 +5,9 @@
 
 insert into users (id, email,first_name,last_name, password)
 values ('ba804cb9-fa14-42a5-afaf-be488742fc54', 'admin@example.com', 'James','Bond', '$2a$10$TM3PAYG3b.H98cbRrHqWa.BM7YyCqV92e/kUTBfj85AjayxGZU7d6' ), -- Password: 1234
-('0d8fa44c-54fd-4cd0-ace9-2a7da57992de', 'user@example.com', 'Tyler','Durden', '$2a$10$TM3PAYG3b.H98cbRrHqWa.BM7YyCqV92e/kUTBfj85AjayxGZU7d6') -- Password: 1234
+('0d8fa44c-54fd-4cd0-ace9-2a7da57992de', 'user@example.com', 'Tyler','Durden', '$2a$10$TM3PAYG3b.H98cbRrHqWa.BM7YyCqV92e/kUTBfj85AjayxGZU7d6'), -- Password: 1234
+('0d8fa44c-54fd-4cd0-ace9-2a7da57992d1', 'user1@example.com', 'Marc','Durden', '$2a$10$TM3PAYG3b.H98cbRrHqWa.BM7YyCqV92e/kUTBfj85AjayxGZU7d6') -- Password: 1234
+
  ON CONFLICT DO NOTHING;
 
 
@@ -36,3 +38,12 @@ VALUES ('d29e709c-0ff1-4f4c-a7ef-09f656c390f1', '2ebf301e-6c61-4076-98e3-2a38b31
 ('ab505c92-7280-49fd-a7de-258e618df074', '21c942db-a275-43f8-bdd6-d048c21bf5ab'),
 ('c6aee32d-8c35-4481-8b3e-a876a39b0c02', '21c942db-a275-43f8-bdd6-d048c21bf5ab')
  ON CONFLICT DO NOTHING;
+
+
+INSERT INTO posts (id, user_id, description, image_url, created_at) VALUES
+('ab505c92-7280-49fd-a7de-258e618df074', 'ba804cb9-fa14-42a5-afaf-be488742fc54', 'Hello world! Unser erstes Posting', 'https://picsum.photos/id/1015/800/450', '2025-09-10 08:15:00+00'),
+('ab505c92-7280-49fd-a7de-258e618df075', 'ba804cb9-fa14-42a5-afaf-be488742fc54', 'Coffee break im Office', 'https://picsum.photos/id/1060/800/450', '2025-09-11 09:42:00+00'),
+('ab505c92-7280-49fd-a7de-258e618df076', 'ba804cb9-fa14-42a5-afaf-be488742fc54', 'Neues Feature deployed – Feedback welcome!', 'https://picsum.photos/id/1005/800/450', '2025-09-12 14:03:00+00'),
+('ab505c92-7280-49fd-a7de-258e618df077', 'ba804cb9-fa14-42a5-afaf-be488742fc54', 'Refactoring-Day. Tests laufen grun', 'https://picsum.photos/id/1025/800/450', '2025-09-12 17:25:00+00')
+ON CONFLICT (id) DO NOTHING;
+
